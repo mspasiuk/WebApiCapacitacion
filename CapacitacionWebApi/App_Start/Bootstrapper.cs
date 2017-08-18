@@ -2,6 +2,7 @@
 using Autofac.Integration.WebApi;
 using CapacitacionWebApi.Data.Infrastructure;
 using CapacitacionWebApi.Data.Repositories;
+using CapacitacionWebApi.Mappings;
 using CapacitacionWebApi.Service;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,8 @@ namespace CapacitacionWebApi.App_Start
 
             IContainer container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+            AutoMapperConfiguration.Configure();
         }
     }
 }
