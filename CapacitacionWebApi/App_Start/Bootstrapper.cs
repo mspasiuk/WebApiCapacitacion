@@ -23,8 +23,9 @@ namespace CapacitacionWebApi.App_Start
         private static void SetAutoFacContainer()
         {
             var builder = new ContainerBuilder();
-            var config = new HttpConfiguration();
+            var config = GlobalConfiguration.Configuration;
             //builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
 
@@ -38,6 +39,7 @@ namespace CapacitacionWebApi.App_Start
                .AsImplementedInterfaces().InstancePerRequest();
 
             IContainer container = builder.Build();
+           
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
             AutoMapperConfiguration.Configure();

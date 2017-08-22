@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CapacitacionWebApi.Data
 {
     public class Entities: DbContext
     {
-        public Entities(): base("Entities") { }
+        public Entities(): base("name=Entities") { }
 
         public DbSet<Municipio> Municipios { get; set; }
         public DbSet<Provincia> Provincias { get; set; }
@@ -23,6 +24,8 @@ namespace CapacitacionWebApi.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            var sqliteConnectionInitializer = new DataSeed(modelBuilder);
+            Database.SetInitializer(sqliteConnectionInitializer);
             modelBuilder.Configurations.Add(new MunicipioConfiguration());
             modelBuilder.Configurations.Add(new ProvinciaConfiguration());
         }

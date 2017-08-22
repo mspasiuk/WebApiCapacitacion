@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapacitacionWebApi.Data", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapacitacionWebApi.Service", "CapacitacionWebApi.Service\CapacitacionWebApi.Service.csproj", "{E5D5F361-5755-4F2F-B019-99D7658D82C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapacitacionWebApi.Test", "CapacitacionWebApi.Test\CapacitacionWebApi.Test.csproj", "{55627A84-F817-4F6C-B356-1D432A157304}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E5D5F361-5755-4F2F-B019-99D7658D82C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5D5F361-5755-4F2F-B019-99D7658D82C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5D5F361-5755-4F2F-B019-99D7658D82C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55627A84-F817-4F6C-B356-1D432A157304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55627A84-F817-4F6C-B356-1D432A157304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55627A84-F817-4F6C-B356-1D432A157304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55627A84-F817-4F6C-B356-1D432A157304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

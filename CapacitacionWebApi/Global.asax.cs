@@ -14,9 +14,10 @@ namespace CapacitacionWebApi
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-
-            //Init Db
-            System.Data.Entity.Database.SetInitializer(new DataSeed());
+            HttpConfiguration httpConfig = GlobalConfiguration.Configuration;
+            httpConfig.Formatters.JsonFormatter
+            .SerializerSettings
+            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             Bootstrapper.Run();
 

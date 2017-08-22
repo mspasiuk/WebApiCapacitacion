@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapacitacionWebApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CapacitacionWebApi.Data.Infrastructure
 {
-    public abstract class RepositoryBase<T> where T : class
+    public abstract class RepositoryBase<T> where T : EntityBase
     {
         #region Properties
         private Entities dataContext;
@@ -58,7 +59,7 @@ namespace CapacitacionWebApi.Data.Infrastructure
 
         public virtual T GetById(int id)
         {
-            return dbSet.Find(id);
+            return dbSet.AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
         }
 
         public virtual IEnumerable<T> GetAll()

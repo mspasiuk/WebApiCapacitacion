@@ -16,7 +16,9 @@ namespace CapacitacionWebApi.Service
         IEnumerable<Provincia> GetProvincias();
         Provincia GetProvincia(int id);
         void CreateProvincia(Provincia provincia);
-        void SaveProvincia();
+        void UpdateProvincia(Provincia provincia);
+        void DeleteProvincia(int id);
+        void Save();
     }
 
     public class ProvinciaService : IProvinciaService
@@ -47,7 +49,18 @@ namespace CapacitacionWebApi.Service
             return provincias;
         }
 
-        public void SaveProvincia()
+        public void UpdateProvincia(Provincia provincia)
+        {
+
+            provinciaRepository.Update(provincia);
+        }
+
+        public void DeleteProvincia (int id)
+        {
+            var provincia = provinciaRepository.GetById(id);
+            provinciaRepository.Delete(provincia);
+        }
+        public void Save()
         {
             unitOfWork.Commit();
         }

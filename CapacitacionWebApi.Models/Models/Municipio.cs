@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapacitacionWebApi.Models
 {
-    public class Municipio
+    public class Municipio : EntityBase
     {
-        public int Id { get; set; }
         public string Nombre { get; set; }
         public int ProvinciaId { get; set; }
-        public Provincia Provincia { get; set; }
+        public virtual Provincia Provincia { get; set; }
     }
 }

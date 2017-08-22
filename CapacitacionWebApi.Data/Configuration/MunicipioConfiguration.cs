@@ -1,6 +1,7 @@
 ﻿using CapacitacionWebApi.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,10 @@ namespace CapacitacionWebApi.Data.Configuration
     {
         public MunicipioConfiguration()
         {
-            ToTable("Municipios");
-            Property(m => m.Id).IsRequired();
+            ToTable("Municipios").HasKey(pk => pk.Id);
+            Property(m => m.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(m => m.Nombre).IsRequired().HasMaxLength(80);
-            Property(m => m.ProvinciaId).IsRequired();
+            Property(m => m.ProvinciaId);
         }
     }
 }

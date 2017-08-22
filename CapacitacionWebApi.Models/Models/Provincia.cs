@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace CapacitacionWebApi.Models
 {
-    public class Provincia
+    public class Provincia : EntityBase
     {
-        public int Id { get; set; }
         public string Nombre { get; set; }
         public virtual List<Municipio> Municipios { get; set; }
     }

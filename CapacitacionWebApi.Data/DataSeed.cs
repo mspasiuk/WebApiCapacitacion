@@ -1,4 +1,5 @@
 ﻿using CapacitacionWebApi.Models;
+using SQLite.CodeFirst;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,8 +9,13 @@ using System.Threading.Tasks;
 
 namespace CapacitacionWebApi.Data
 {
-    public class DataSeed : DropCreateDatabaseIfModelChanges<Entities>
+    public class DataSeed : SqliteDropCreateDatabaseAlways<Entities>
     {
+        public DataSeed (DbModelBuilder modelBuilder) : base(modelBuilder)
+        {
+
+        }
+
         protected override void Seed(Entities context)
         {
             GetProvincias().ForEach(p => context.Provincias.Add(p));
@@ -24,11 +30,13 @@ namespace CapacitacionWebApi.Data
             {
                 new Provincia
                 {
+                    Id=1,
                     Nombre="Buenos Aires"
                 },
                 new Provincia
                 {
-                    Nombre= "Cordoba"
+                    Id=2,
+                    Nombre = "Cordoba"
                 }
             };
         }
@@ -39,12 +47,14 @@ namespace CapacitacionWebApi.Data
             {
                 new Municipio
                 {
-                    Nombre= "La Plata",
+                    Id=1,
+                    Nombre = "La Plata",
                     ProvinciaId=1
                 },
                 new Municipio
                 {
-                    Nombre= "Carlos Paz",
+                    Id=2,
+                    Nombre = "Carlos Paz",
                     ProvinciaId=2
                 }
             };

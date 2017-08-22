@@ -1,6 +1,7 @@
 ﻿using CapacitacionWebApi.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,9 @@ namespace CapacitacionWebApi.Data.Configuration
     {
         public ProvinciaConfiguration()
         {
-            ToTable("Provincias");
+            ToTable("Provincias").HasKey(pk => pk.Id);
             Property(p => p.Nombre).IsRequired().HasMaxLength(80);
+            Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
         }
     }
 }
